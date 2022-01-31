@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:shop_app/components/default_button.dart';
 import 'package:shop_app/screens/splash/components/splash_content.dart';
+import 'package:shop_app/screens/splash/sign_in/sign_in_screen.dart';
 import 'package:shop_app/size_config.dart';
 
 import '../../../constants.dart';
@@ -70,7 +72,9 @@ class _BodyState extends State<Body> {
                     ),
                     DefaultButton(
                       text: 'Continuer',
-                      press: () {},
+                      press: () {
+                        Navigator.pushNamed(context, SignInScreen.routeName);
+                      },
                     ),
                     Spacer(),
                   ],
@@ -92,36 +96,6 @@ class _BodyState extends State<Body> {
       decoration: BoxDecoration(
           color: currentPage == index ? kPrimaryColor : Color(0xFFD8D8D8),
           borderRadius: BorderRadius.circular(3)),
-    );
-  }
-}
-
-class DefaultButton extends StatelessWidget {
-  const DefaultButton({
-    Key? key,
-    required this.text,
-    required this.press,
-  }) : super(key: key);
-  final String text;
-  final Function press;
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      width: double.infinity,
-      height: getProportionateScreenHeight(56),
-      child: FlatButton(
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-          onPressed: () {},
-          color: kPrimaryColor,
-          child: Text(
-            text,
-            style: TextStyle(
-              fontSize: getProportionateScreenWidth(18),
-              color: Colors.white,
-            ),
-          )),
     );
   }
 }
